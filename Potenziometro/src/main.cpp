@@ -4,9 +4,11 @@ const int pin_tap = 34;
 const int freq = 1000;
 const int resolution = 8;
 const int pin_led = 27;
+const int channel = 0;
 
 void setup() {
-  ledcAttach(pin_led, freq, resolution);
+  ledcAttachPin(pin_led, channel);
+  ledcSetup(channel, freq, resolution);
   ledcWrite(pin_led, 0);   // LED spento all’inizio
   Serial.begin(115200);
 }
