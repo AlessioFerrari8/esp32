@@ -3,8 +3,7 @@
 #define ledinterno 2
 #define led1 12
 #define led2 4
-#define led3 5
-#define led4 19
+#define led3 34
 
 int lettura1 = 0;
 int lettura2 = 0;
@@ -57,7 +56,6 @@ void loop() {
   delay(200);
 }
 
-// ---- Funzione per mostrare un numero binario sui LED ----
 void mostraNumero(int n) {
   digitalWrite(led1, n % 2);
   digitalWrite(led2, (n / 2) % 2);
@@ -65,7 +63,6 @@ void mostraNumero(int n) {
   digitalWrite(led4, (n / 8) % 2);
 }
 
-// ---- Funzione per spegnere tutti i LED esterni ----
 void spegniLED() {
   digitalWrite(led1, LOW);
   digitalWrite(led2, LOW);
