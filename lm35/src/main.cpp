@@ -15,9 +15,6 @@
 
 // Dichiarazione costanti
 const int pin_lm = 34;
-const int freq = 1000;
-const int freq_lcd = 5000;
-const int resolution = 8;
 const int pin_led = 5;
 LiquidCrystal lcd(14, 27, 26, 25, 33, 32);
 
