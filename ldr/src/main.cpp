@@ -12,7 +12,7 @@
 
 
 // Dichiarazione costanti
-const int pin_ldr = 34;
+const int pin_lm = 34;
 const int freq = 1000;
 const int freq_lcd = 5000;
 const int resolution = 8;
@@ -36,7 +36,7 @@ void setup() {
 
 void loop() {
  // Lettura del valore analogico
- int val = analogRead(pin_ldr); // 0–4095, 12 bit
+ int val = analogRead(pin_lm); // 0–4095, 12 bit
  //Serial.println(tensione);
  int pwm_val = map(val, 0, 4095, 255, 0); // adattiamo al range 8-bit, valori inversi
  int pwm_val_lcd = map(val, 0, 4095, 40, 255); // adattiamo al range 8-bit
