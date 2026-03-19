@@ -2,8 +2,11 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include "ConfigWifi.h"
+#include <ESP32Ping.h>
+
 
 const int LED_ON_BOARD = 2;
+IPAddress remoteESP32(192, 168, 5, 254); 
 
 // dichiarazione funzioni di servizio
 
@@ -25,6 +28,22 @@ void setup() {
   Serial.println("\nConnesso correttamente!");
   Serial.print("Indirizzo IP locale: ");
   Serial.println(WiFi.localIP());           // Stampa l'IP assegnato dal DHCP
+  Serial.println(WiFi.subnetMask());
+  Serial.println(WiFi.gatewayIP());
+
+  Serial.print("Ping");
+  Serial.print(remoteESP32);
+  Serial.print("...");
+
+  // ping con 5 pacchetti
+  bool success = Ping.ping(remoteESP32, 5);
+
+  if (success) {
+  Serial.println("Ping a buon fine");
+  } else {
+  Serial.println("Nope. L’altro esp non risponde");
+  }
+
 }
 
 void loop() {
